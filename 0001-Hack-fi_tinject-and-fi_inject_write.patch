@@ -1,0 +1,37 @@
+From 5b3781fa1ba29bcd4425d164fe275502d07d42c2 Mon Sep 17 00:00:00 2001
+From: Yanfei Guo <yguo@anl.gov>
+Date: Sun, 2 Apr 2017 15:56:02 -0500
+Subject: [PATCH] Hack fi_tinject and fi_inject_write
+
+---
+ prov/psm2/src/psmx2_rma.c    | 1 +
+ prov/psm2/src/psmx2_tagged.c | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/prov/psm2/src/psmx2_rma.c b/prov/psm2/src/psmx2_rma.c
+index 0b5305a9103f..c0798675829b 100644
+--- a/prov/psm2/src/psmx2_rma.c
++++ b/prov/psm2/src/psmx2_rma.c
+@@ -1421,6 +1421,7 @@ static ssize_t psmx2_writev(struct fid_ep *ep, const struct iovec *iov,
+ static ssize_t psmx2_inject(struct fid_ep *ep, const void *buf, size_t len,
+ 			    fi_addr_t dest_addr, uint64_t addr, uint64_t key)
+ {
++    return 0;
+ 	struct psmx2_fid_ep *ep_priv;
+ 
+ 	ep_priv = container_of(ep, struct psmx2_fid_ep, ep);
+diff --git a/prov/psm2/src/psmx2_tagged.c b/prov/psm2/src/psmx2_tagged.c
+index 6f0317305c9d..1e33ac9bd3c2 100644
+--- a/prov/psm2/src/psmx2_tagged.c
++++ b/prov/psm2/src/psmx2_tagged.c
+@@ -1180,6 +1180,7 @@ static ssize_t psmx2_tagged_inject(struct fid_ep *ep,
+ 				   const void *buf, size_t len,
+ 				   fi_addr_t dest_addr, uint64_t tag)
+ {
++    return 0;
+ 	struct psmx2_fid_ep *ep_priv;
+ 
+ 	ep_priv = container_of(ep, struct psmx2_fid_ep, ep);
+-- 
+2.12.0
+
