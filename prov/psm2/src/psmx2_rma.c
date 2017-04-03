@@ -1421,6 +1421,7 @@ static ssize_t psmx2_writev(struct fid_ep *ep, const struct iovec *iov,
 static ssize_t psmx2_inject(struct fid_ep *ep, const void *buf, size_t len,
 			    fi_addr_t dest_addr, uint64_t addr, uint64_t key)
 {
+    return 0;
 	struct psmx2_fid_ep *ep_priv;
 
 	ep_priv = container_of(ep, struct psmx2_fid_ep, ep);
